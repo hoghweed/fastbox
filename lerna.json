@@ -1,0 +1,16 @@
+{
+  "packages": [
+    "packages/*"
+  ],
+  "command": {
+    "version": {
+      "allowBranch": "main",
+      "conventionalCommits": true,
+      "exact": true,
+      "message": "chore(release): %s"
+    }
+  },
+  "npmClient": "pnpm",
+  "useWorkspaces": true,
+  "version": "independent"
+}

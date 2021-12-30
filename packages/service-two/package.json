@@ -1,0 +1,21 @@
+{
+  "name": "service-two",
+  "version": "0.0.1",
+  "description": "a simple sample service two",
+  "author": "hoghweed <manuel.martone@gmail.com>",
+  "homepage": "https://github.com/hoghweed/monorepo-next#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoghweed/monorepo-next.git"
+  },
+  "scripts": {
+    "dev": "fastify start -w -l info -P -o true index.js"
+  },
+  "dependencies": {
+    "fastify": "^3.25.3",
+    "fastify-autoload": "^3.9.0",
+    "fastify-cli": "^2.14.0"
+  }
+}

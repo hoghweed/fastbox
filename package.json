@@ -1,0 +1,52 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "commit": "git-cz",
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "clean": "pnpm run clean:artifacts",
+    "clean:artifacts": "rimraf ./**/node_modules",
+    "run:service:one": "PORT=3001 pnpm run dev --filter service-one",
+    "run:service:two": "PORT=3002 pnpm run dev --filter service-two"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0",
+    "@commitlint/cli": "~14.1.0",
+    "@commitlint/config-conventional": "^14.1.0",
+    "@commitlint/core": "~14.1.0",
+    "@commitlint/prompt": "^14.1.0",
+    "@lerna/project": "^4.0.0",
+    "commitizen": "~4.2.4",
+    "cross-env": "~7.0.3",
+    "cz-conventional-changelog": "^3.2.0",
+    "cz-lerna-changelog": "^2.0.3",
+    "dateformat": "~5.0.2",
+    "husky": "~7.0.4",
+    "turbo": "*"
+  },
+  "turbo": {
+    "baseBranch": "origin/main"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-lerna-changelog"
+    }
+  }
+}
